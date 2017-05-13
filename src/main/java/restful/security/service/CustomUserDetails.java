@@ -1,4 +1,4 @@
-package restful.service;
+package restful.security.service;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;

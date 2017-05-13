@@ -1,9 +1,10 @@
-package restful.service;
+package restful.service.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import restful.model.Employee;
 import restful.repository.EmployeeRepository;
+import restful.service.EmployeeService;
 
 import java.io.Serializable;
 import java.util.List;

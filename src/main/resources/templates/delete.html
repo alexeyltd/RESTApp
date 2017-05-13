@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Admin Panel</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.1/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.1/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+
+    <link href="../css/signin.css" th:href="@{/css/signin.css}" rel="stylesheet" media="screen"/>
+
+</head>
+<body>
+
+<form th:action="@{/admin/delete}" method="POST">
+    ID: <input type="text" name="id"/>
+    <input type="submit" value="Submit"></input>
+</form>
+
+</body>
+</html>

@@ -6,12 +6,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.security.web.csrf.CsrfFilter;
 import restful.config.init.TestDataInitializer;
 import restful.security.handler.CustomAuthenticationSuccessHandler;
-import restful.service.CustomUserDetailsService;
+import restful.security.service.CustomUserDetailsService;
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -36,6 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/admin/**").hasAnyAuthority("ADMIN")
                 .antMatchers("/employee").hasAnyAuthority("ADMIN")
+                .antMatchers("/rest/user").hasAnyAuthority("ADMIN")
                 .and()
                 .formLogin()
                 .loginPage("/")

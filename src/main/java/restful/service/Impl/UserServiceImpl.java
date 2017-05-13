@@ -1,9 +1,10 @@
-package restful.service;
+package restful.service.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import restful.model.User;
 import restful.repository.UserRepository;
+import restful.service.UserService;
 
 import java.io.Serializable;
 import java.util.List;
@@ -27,11 +28,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAll() {
-        return (List<User>) userRepository.findAll();
+        return userRepository.findAll();
     }
 
     @Override
     public void delete(Serializable id) {
         userRepository.delete((Long) id);
+    }
+
+    @Override
+    public User findByUserName(String username) {
+        return userRepository.findByUserName(username);
     }
 }

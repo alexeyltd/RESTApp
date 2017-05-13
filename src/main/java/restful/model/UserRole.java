@@ -1,5 +1,6 @@
 package restful.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class UserRole implements GrantedAuthority {
     @Column(name = "name", length = 20, nullable = false)
     private String name;
 
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER, targetEntity = User.class)
     @JoinTable(name = "permissions",
             joinColumns = {@JoinColumn(name = "role_id")},
@@ -69,6 +71,7 @@ public class UserRole implements GrantedAuthority {
         return name != null ? name.hashCode() : 0;
     }
 
+    @Override
     public String getAuthority() {
         return name;
     }
